@@ -1,0 +1,72 @@
+% !Mode:: "TeX:UTF-8"
+%% 请使用 XeLaTeX 编译本文. 默认使用 Adobe 字体. 需安装 Adobe fonts 文件夹中的字体.
+\documentclass[forprint]{whuthesis}   % 选项 forprint: 交付打印时, 建议加上此选项, 以消除彩色链接文字, 避免彩色字迹打印偏淡.
+                                      % 选项 forlib: 提交给图书馆的电子版, 需要加上选项 forlib, 以消除空白页和彩色链接.
+
+\graphicspath{{figures/}}        % 图片放在 figures 文件夹.
+
+%%%%%%%-------------------------------------------------
+
+\fenleihao{}   % 分类号
+\miji{}            % 密级
+\UDC{}             % UDC分类号
+\bianhao{10486}    % 学校编号
+
+\title{武汉大学硕士论文~\LaTeX~模板}
+\Etitle{A \LaTeX~Thesis Template for Wuhan University} % 英文题目
+\author{李狗蛋}                        % 姓名
+\StudentNumber{2011202110000}          % 学号
+\Eauthor{LI Goudan}                    %作者英文名
+\Csupervisor{xxx\quad 教授}            %指导教师中文名、职称
+\Esupervisor{Prof.~XXX Xxx Xxx}        %指导教师英文名、职称
+\Cmajor{计算机软件与理论}               % 专业中文名
+\Emajor{Computer Software and Theory}  % 专业英文名
+\Cspeciality{智能计算}                  % 研究方向
+\Especiality{Intelligent Computing}    % 研究方向
+\Schoolname{School of Computer}        %学院英文名. 不确定的话, 请看一下自己学院的网页上是怎么写的. 别搞错了!
+\date{二〇一三年四月}                   % 硕士类只写年月. 要注意和英文日期一致!!
+\Edate{April, 2013}                    % 英文封面日期
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%-----------------------------------------------------------------------------
+\pdfbookmark[0]{封面}{title}         % 封面页加到 pdf 书签
+\maketitle
+%-----------------------------------------------------------------------------
+\include{data/frontmatter}    % 加入英文封面
+\frontmatter
+\pagenumbering{Roman}               % 正文之前的页码用大写罗马字母编号.
+%------------------------------------------------------------------------------
+\include{data/midmatter}      % 加入中英文摘要.
+%---把目录加入到书签---%
+\pdfbookmark[0]{目录}{toc}
+\tableofcontents
+%------------------------------------------------------------------------------
+\mainmatter %% 以下是正文
+\baselineskip=20pt  % 正文行距为 20 磅
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{data/chapter01}
+\include{data/chapter02}
+\include{data/chapter03}
+\include{data/chapter04}
+\include{data/chapter05}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%=== 参考文献=== %%%
+\bibliographystyle{unsrt}        % 参考文献样式,  plain,unsrt,alpha,abbrv 等等
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{参考文献}
+\bibliography{ref/reference}
+
+\backmatter
+\include{data/backmatter}        % 致谢, 武汉大学学位论文使用授权协议书．
+\cleardoublepage
+\end{document}
+
+
+
